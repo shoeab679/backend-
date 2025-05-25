@@ -1,15 +1,8 @@
 services:
   - type: web
-    name: edusaarthi-api
-    env: node
-    buildCommand: npm install
-    startCommand: node src/server.js
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 10000
-      - key: MONGO_URI
-        sync: false
-      - key: JWT_SECRET
-        sync: false
+    name: edusaarthi-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    region: oregon
+    plan: free
